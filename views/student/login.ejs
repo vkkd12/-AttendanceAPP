@@ -1,0 +1,36 @@
+<%layout("layouts/boilerplate.ejs");%>
+<body>
+  <div class="row">
+    <div class="col-10 offset-1 border border-black border-2 rounded-5 p-4">
+      <h1 class="text-center">Fairy Tail</h1>
+      <form method="post" action="/login" novalidate class="needs-validation">
+        <div class="mb-3">
+          <label for="username" class="form-label">User ID</label>
+          <input
+            name="username"
+            type="text"
+            class="form-control"
+            id="username"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Enter UserID</div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            name="password"
+            type="password"
+            class="form-control"
+            id="password"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Enter Your Password</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,56 @@
+body {
+    background-color: rgb(178, 217, 217);
+}
+
+.main {
+    padding: 1rem 2rem 2rem;
+}
+
+.header {
+    height: 30vh;
+    background-image: url("/x.png");
+    background-size: 30%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.text-success {
+    color: rgb(6, 43, 255) !important;
+}
+
+p {
+    margin: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    .header {
+        height: 35vh;
+        background-size: 18%;
+    }
+}
+
+.color_bar {
+    background-color: rgb(135, 245, 208);
+}
+
+li {
+    padding: 1%;
+    font-size: 130%;
+}
+
+form {
+    display: inline;
+}
+
+.drop_down_item {
+    display: none;
+    width: 100%;
+    box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.2);
+    border: 1px solid black;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.drop_down_show {
+    display: block;
+}
