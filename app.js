@@ -18,7 +18,7 @@ import router_student from "./router/router_student.js";
 import ExpressError from "./utils/ExpressError.js";
 
 const dbURL = process.env.dbURL;
-
+import mongoose from "mongoose";
 mongoose
   .connect(dbURL)
   .then(console.log("connected to DB"))
