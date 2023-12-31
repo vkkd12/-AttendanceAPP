@@ -16,6 +16,7 @@ if (length !== 0) {
     let ele = drop_down_head[i];
     ele.addEventListener("click", () => {
       let drop_down_item = ele.nextElementSibling.nextElementSibling;
+
       if (drop_down_item.classList.contains("drop_down_show")) {
         drop_down_item.classList.remove("drop_down_show");
       } else {
@@ -26,33 +27,14 @@ if (length !== 0) {
   console.log("Dropdown Head Set");
 }
 
-let button_present = document.getElementsByClassName("button_present");
-length = button_present.length;
-if (length !== 0) {
-  for (let btn of button_present) {
-    btn.addEventListener("click", () => {
-      console.log("present");
-    });
-  }
-}
-
-let button_absent = document.getElementsByClassName("button_absent");
-length = button_absent.length;
-if (length !== 0) {
-  for (let btn of button_absent) {
-    btn.addEventListener("click", () => {
-      console.log("absent");
-    });
-  }
-}
-
 let countSubjects = 1;
 let button = document.getElementById("add_subject_above");
-button.addEventListener("click", (event) => {
-  countSubjects++;
-  let div = document.createElement("div");
-  div.setAttribute("class", "mb-3");
-  div.innerHTML = `<label for="subject${countSubjects}" class="form-label">Subject-${countSubjects}</label>
+if (button) {
+  button.addEventListener("click", (event) => {
+    countSubjects++;
+    let div = document.createElement("div");
+    div.setAttribute("class", "mb-3");
+    div.innerHTML = `<label for="subject${countSubjects}" class="form-label">Subject-${countSubjects}</label>
   <input
     id="subject${countSubjects}"
     class="form-control"
@@ -62,6 +44,7 @@ button.addEventListener("click", (event) => {
   />
   <div class="valid-feedback">Looks good!</div>
   <div class="invalid-feedback">Enter Subject Name</div>`;
-  let parent = button.parentElement;
-  parent.insertBefore(div, button);
-});
+    let parent = button.parentElement;
+    parent.insertBefore(div, button);
+  });
+}
