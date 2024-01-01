@@ -64,6 +64,11 @@ form {
     display: block;
 }
 
+.flash_message {
+    border: 0;
+    color: whitesmoke;
+    background-color: rgb(62, 62, 62);
+}
 
 /****************NEW USER INTERFACE*****************/
 
