@@ -1,9 +1,10 @@
 body {
-    background-color: rgb(178, 217, 217);
+    font-family: 'Source Code Pro', monospace;
+    background-color: rgb(109, 109, 109);
 }
 
 .main {
-    padding: 1rem 2rem 2rem;
+    padding: 1rem 1rem 2rem;
 }
 
 .header {
@@ -31,7 +32,16 @@ p {
 }
 
 .color_bar {
-    background-color: rgb(135, 245, 208);
+    /* background-color: rgb(215, 236, 229); */
+    transition: 1s linear;
+}
+
+.student_info {
+    background-color: rgb(182, 184, 183);
+}
+
+ol {
+    padding-left: 2.5rem;
 }
 
 li {
@@ -45,13 +55,55 @@ form {
 
 .drop_down_item {
     display: none;
-    width: 100%;
     box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.2);
     border: 1px solid black;
-    padding: 1rem;
     margin-top: 1rem;
 }
 
 .drop_down_show {
     display: block;
+}
+
+
+/****************NEW USER INTERFACE*****************/
+
+.new_styling {
+    background-color: rgb(182, 184, 183);
+    padding: 0 10px 10px;
+}
+
+.button_newStyle {
+    border: none;
+    padding: 10px 10px 5px;
+    background-color: rgb(89, 101, 114);
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 0px 0px 10px 10px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 1.3rem;
+}
+
+hr {
+    background-color: black;
+}
+
+.info_box {
+    padding: 10px;
+    padding-top: 0;
+}
+
+p {
+    margin: 0;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.heading_info {
+    font-weight: 200;
+}
+
+.value {
+    font-weight: 400;
+    font-size: 200%;
 }

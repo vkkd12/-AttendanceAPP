@@ -1,61 +1,78 @@
 <%layout("layouts/boilerplate.ejs");%>
 <body>
-  <div class="container p-4 pb-0 border border-black border-3 rounded-5">
+  <div
+    class="student_info container p-4 pb-0 border border-black border-2 shadow-lg"
+  >
     <h1 class="z_index text-start"><%= student.name %></h1>
     <hr />
-    <ol class="z_index">
+    <ol>
       <% for( let subject of student.subject) { %>
       <li>
         <div
+          style="cursor: pointer"
           class="mb-1 drop_down_head text-decoration-underline fst-italic text-primary-emphasis"
         >
           <%= subject.name %>
         </div>
 
-        <div
-          class="ms-0 border border-black border-2 rounded-2"
-          style="width: 100%"
-        >
-          <div class="color_bar text-center m-0 rounded-1 container">
+        <div class="ms-0 border border-black border-2 rounded-2">
+          <div
+            style="width: 0"
+            class="bg-secondary bg-opacity-50 color_bar text-center m-0 rounded-1 container"
+          >
             <%=((subject.attend_days * 100.0) /
             subject.totalDays).toString().slice(0, 5)%>%
           </div>
         </div>
 
         <div class="drop_down_item">
-          <div class="d-flex flex-column">
-            <div>
+          <div class="new_styling text-light">
+            <div class="button_container d-flex justify-content-evenly">
               <form
                 action="/sent/<%=student._id%>/present/<%=subject._id%>"
                 method="POST"
               >
-                <button class="btn btn-primary p-1 button_present">
-                  Attended
-                </button>
+                <button class="button_newStyle">Attended</button>
               </form>
-              &nbsp; &nbsp; &nbsp; &nbsp;
               <form
                 action="/sent/<%=student._id%>/absent/<%=subject._id%>"
                 method="POST"
               >
-                <button class="btn btn-primary p-1 button_absent">
-                  Missed
-                </button>
+                <button class="button_newStyle">Missed</button>
               </form>
             </div>
-
             <hr />
-            <div>Total Lectures = <%=subject.totalDays%></div>
-            <div>Lectures Attended = <%=subject.attend_days%></div>
-            <% if (subject.canBeAbsent) { %>
-            <div class="text-success">
-              You can take <%=subject.lectures%> leaves
+            <div class="info_container d-flex justify-content-evenly flex-wrap">
+              <div class="info_box">
+                <p class="text-dark text-opacity-85 heading_info">
+                  &nbsp;Total Lectures&nbsp;
+                </p>
+                <p class="value"><%=subject.totalDays%></p>
+              </div>
+              <div class="info_box">
+                <p class="text-dark text-opacity-85 heading_info">
+                  &nbsp;Lectures Attended&nbsp;
+                </p>
+                <p class="value"><%=subject.attend_days%></p>
+              </div>
+              <div class="info_box">
+                <% if (subject.canBeAbsent) { %>
+                <div class="info_box">
+                  <p class="text-dark text-opacity-85 heading_info">
+                    &nbsp;Leaves Allowed&nbsp;
+                  </p>
+                  <p class="value"><%=subject.lectures%></p>
+                </div>
+                <% } else{ %>
+                <div class="info_box">
+                  <p class="text-dark text-opacity-85 heading_info">
+                    &nbsp;Required Lectures&nbsp;
+                  </p>
+                  <p class="value"><%=subject.lectures%></p>
+                </div>
+                <% } %>
+              </div>
             </div>
-            <% } else{ %>
-            <div class="text-danger">
-              You have to attend <%=subject.lectures%> upcoming Lectures
-            </div>
-            <% } %>
           </div>
         </div>
       </li>

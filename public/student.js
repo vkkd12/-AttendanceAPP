@@ -4,9 +4,7 @@ if (length !== 0) {
   for (let i = 0; i < length; i++) {
     let value = color_bar[`${i}`].innerText;
     color_bar[`${i}`].style.width = value;
-    console.log(value);
   }
-  console.log("width set");
 }
 
 let drop_down_head = document.getElementsByClassName("drop_down_head");
@@ -24,12 +22,11 @@ if (length !== 0) {
       }
     });
   }
-  console.log("Dropdown Head Set");
 }
 
-let countSubjects = 1;
 let button = document.getElementById("add_subject_above");
 if (button) {
+  let countSubjects = 1;
   button.addEventListener("click", (event) => {
     countSubjects++;
     let div = document.createElement("div");

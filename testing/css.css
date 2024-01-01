@@ -1,0 +1,52 @@
+body {
+    font-family: 'Source Code Pro', monospace;
+}
+
+.new_styling {
+    background-color: rgb(182, 184, 183);
+    width: 100%;
+    padding: 0 10px 10px;
+}
+
+.button_container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button_newStyle {
+    padding: 10px 10px 5px;
+    background-color: rgb(89, 101, 114);
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 0px 0px 10px 10px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 1.3rem;
+}
+
+.info_container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.info_box {
+    padding: 10px;
+}
+
+p {
+    margin: 0;
+    color: white;
+    text-decoration: underline;
+
+}
+
+.heading_info {
+    font-size: clamp(2vmax, 2.5vmax, 3vmax);
+    font-weight: 200;
+}
+
+.value {
+    text-align: center;
+    font-size: clamp(2.5vmax, 3vmax, 3.5vmax)
+}

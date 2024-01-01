@@ -17,19 +17,6 @@ import router_user from "./router/router_user.js";
 import router_student from "./router/router_student.js";
 import ExpressError from "./utils/ExpressError.js";
 
-const dbURL = process.env.dbURL;
-import mongoose from "mongoose";
-mongoose
-  .connect(dbURL)
-  .then(console.log("connected to DB"))
-  .catch((err) => console.log(err));
-
-// import { connect } from "mongoose";
-// main().catch((err) => console.log(err));
-// async function main() {
-//   await connect("mongodb://127.0.0.1:27017/Attendance");
-// }
-
 app.engine("ejs", ejsMate);
 
 app.set("view engine", "ejs");
@@ -37,6 +24,13 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser("serectcode"));
+
+const dbURL = process.env.dbURL;
+import mongoose from "mongoose";
+mongoose
+  .connect(dbURL)
+  .then(console.log("connected to DB"))
+  .catch((err) => console.log(err));
 
 const store = MongoStore.create({
   mongoUrl: dbURL,
@@ -61,6 +55,24 @@ let sessionOptions = {
     httpOnly: true,
   },
 };
+
+// import { connect } from "mongoose";
+// main().catch((err) => console.log(err));
+// async function main() {
+//   await connect("mongodb://127.0.0.1:27017/Attendance");
+// }
+
+// let sessionOptions = {
+//   secret: process.env.SECRET,
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: {
+//     expires: Date.now() + 1 * 60 * 60 * 1000,
+//     maxAge: 1 * 60 * 60 * 1000,
+//     httpOnly: true,
+//   },
+// };
+
 app.use(session(sessionOptions));
 
 app.use(flash());

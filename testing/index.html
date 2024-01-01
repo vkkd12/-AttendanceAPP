@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css.css" />
+  </head>
+  <body>
+    <div class="new_styling">
+      <div class="button_container">
+        <form
+          action="/sent/<%=student._id%>/present/<%=subject._id%>"
+          method="POST"
+        >
+          <div type="button" class="button_newStyle">Attended</div>
+        </form>
+        <form
+          action="/sent/<%=student._id%>/absent/<%=subject._id%>"
+          method="POST"
+        >
+          <div type="button" class="button_newStyle">Missed</div>
+        </form>
+      </div>
+      <hr />
+      <div class="info_container">
+        <div class="info_box">
+          <p class="heading_info">&nbsp;Total Lectures&nbsp;</p>
+          <p class="value"><%=subject.totalDays%></p>
+        </div>
+        <div class="info_box">
+          <p class="heading_info">&nbsp;Lectures Attended&nbsp;</p>
+          <p class="value"><%=subject.attend_days%></p>
+        </div>
+        <div class="info_box">
+          <p class="heading_info">&nbsp;Leaves Allowed&nbsp;</p>
+          <p class="value"><%=subject.lectures%></p>
+        </div>
+        <div class="info_box">
+          <% if (subject.canBeAbsent) { %>
+          <div class="text-success info_box">
+            <p class="heading_info">&nbsp;Leaves Allowed&nbsp;</p>
+            <p class="value"><%=subject.lectures%></p>
+          </div>
+          <% } else{ %>
+          <div class="text-danger info_box">
+            <p class="heading_info">&nbsp;Required Lectures&nbsp;</p>
+            <p class="value"><%=subject.lectures%></p>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
