@@ -84,6 +84,7 @@ passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
 
 app.use((req, res, next) => {
+  res.locals.edit = false;
   res.locals.succes = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.user_info = req.user; // undefined or object containing users info.

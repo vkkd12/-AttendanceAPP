@@ -64,7 +64,6 @@ const AddStudentDone = async (req, res) => {
     let stu = new List({ name, subject });
     await stu.save();
     let adding_student_with_user = await user.findById(req.user._id);
-
     adding_student_with_user.student = stu._id;
     await adding_student_with_user.save();
 

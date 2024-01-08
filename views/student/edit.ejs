@@ -1,0 +1,80 @@
+<%layout("layouts/boilerplate.ejs");%>
+<body>
+  <div class="row">
+    <div
+      class="student_info col-10 offset-1 border border-black border-2 rounded-5 p-4"
+    >
+      <h1 class="text-center">Edit Page</h1>
+      <hr />
+      <form
+        method="post"
+        action="/sent/<%=student._id%>/edit"
+        novalidate
+        class="needs-validation"
+      >
+        <% for( let subject of student.subject) { %>
+        <div class="edit_box">
+          <div
+            class="text-center fs-4 text-decoration-underline fst-italic text-primary-emphasis"
+          >
+            <%=subject.name%>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-4 mb-3">
+              <label for="<%=subject._id%>[_name]" class="form-label">
+                Subject Name
+              </label>
+              <input
+                name="<%=subject._id%>[_name]"
+                value="<%=subject.name%>"
+                type="text"
+                class="form-control"
+                id="<%=subject._id%>[_name]"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">Please Fill Info</div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+              <label for="<%=subject._id%>[_TotalDays]" class="form-label">
+                Total Lectures
+              </label>
+              <input
+                name="<%=subject._id%>[_TotalDays]"
+                value="<%=subject.totalDays%>"
+                type="number"
+                class="form-control"
+                id="<%=subject._id%>[_TotalDays]"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">Please Fill Info</div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+              <label for="<%=subject._id%>[_AttendDays]" class="form-label">
+                Lectures Attended
+              </label>
+              <input
+                name="<%=subject._id%>[_AttendDays]"
+                value="<%=subject.attend_days%>"
+                type="number"
+                class="form-control"
+                id="<%=subject._id%>[_AttendDays]"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">Please Fill Info</div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+
+        <div id="add_subject_above_edit" class="btn btn-secondary">
+          +1 Subject
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+</body>

@@ -22,5 +22,27 @@ router.post(
   student_controller.Absent
 );
 
+// router
+//   .route("/:id/edit/:id_2")
+//   .get(middleware.isLoggedIn, student_controller.Edit)
+//   .post(middleware.isLoggedIn, student_controller.SaveEdit);
+
+router
+  .route("/:id/edit")
+  .get(middleware.isLoggedIn, student_controller.EditPage)
+  .post(middleware.isLoggedIn, student_controller.SaveEditPage);
+
+router.post(
+  "/:id/delete/:id_2",
+  middleware.isLoggedIn,
+  student_controller.Delete
+);
+
+router.post(
+  "/:id/deleteAll",
+  middleware.isLoggedIn,
+  student_controller.DeleteAll
+);
+
 const router_student = router;
 export default router_student;

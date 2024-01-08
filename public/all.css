@@ -32,7 +32,6 @@ p {
 }
 
 .color_bar {
-    /* background-color: rgb(215, 236, 229); */
     transition: 1s linear;
 }
 
@@ -74,7 +73,7 @@ form {
 
 .new_styling {
     background-color: rgb(182, 184, 183);
-    padding: 0 10px 10px;
+    padding: 0 10px;
 }
 
 .button_newStyle {
@@ -87,6 +86,9 @@ form {
     text-align: center;
     line-height: 20px;
     font-size: 1.3rem;
+}
+._down{
+    border-radius: 10px 10px 0px 0px ;
 }
 
 hr {
@@ -111,4 +113,13 @@ p {
 .value {
     font-weight: 400;
     font-size: 200%;
+}
+
+/**************** EDIT *****************/
+
+.edit_box{
+    box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.2);
+    background-color: rgb(129, 129, 129);
+    padding: 10px;
+    margin-bottom: 1rem;
 }

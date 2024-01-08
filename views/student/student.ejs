@@ -73,14 +73,29 @@
                 <% } %>
               </div>
             </div>
+            <hr class="mt-0" />
+            <div class="button_container d-flex justify-content-evenly">
+              <form
+                action="/sent/<%=student._id%>/delete/<%=subject._id%>"
+                method="POST"
+              >
+                <button class="button_newStyle _down">Delete</button>
+              </form>
+            </div>
           </div>
         </div>
       </li>
       <% } %>
     </ol>
-    <div class="text-center mb-3">
+    <div class="d-flex justify-content-between mb-3 ps-5 pe-2">
       <form method="get" action="/logout">
         <button class="btn btn-warning">Logout</button>
+      </form>
+      <form method="get" action="/sent/<%=student._id%>/edit">
+        <button class="btn btn-primary">Edit</button>
+      </form>
+      <form method="post" action="/sent/<%=student._id%>/deleteAll">
+        <button class="btn btn-danger">Delete All</button>
       </form>
     </div>
   </div>
