@@ -128,7 +128,7 @@ if (input_subject.length > 0) {
       if (input.checked) {
         const present = async () => {
           let response = await axios.post(
-            `http://${website_name}/sent/${studentId}/present/${subjectId}`
+            `https://${website_name}/sent/${studentId}/present/${subjectId}`
           );
         };
 
@@ -136,7 +136,7 @@ if (input_subject.length > 0) {
       } else {
         const removePresent = async () => {
           let response = await axios.post(
-            `http://${website_name}/sent/${studentId}/removePresent/${subjectId}`
+            `https://${website_name}/sent/${studentId}/removePresent/${subjectId}`
           );
         };
 
@@ -156,7 +156,7 @@ if (input_subject2.length > 0) {
       if (input.checked) {
         const absent = async () => {
           let response = await axios.post(
-            `http://${website_name}/sent/${studentId}/absent/${subjectId}`
+            `https://${website_name}/sent/${studentId}/absent/${subjectId}`
           );
         };
 
@@ -164,7 +164,7 @@ if (input_subject2.length > 0) {
       } else {
         const removeAbsent = async () => {
           let response = await axios.post(
-            `http://${website_name}/sent/${studentId}/removeAbsent/${subjectId}`
+            `https://${website_name}/sent/${studentId}/removeAbsent/${subjectId}`
           );
         };
 
