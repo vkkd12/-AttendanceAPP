@@ -17,15 +17,22 @@ router.post(
 );
 
 router.post(
+  "/:id/removePresent/:id_2",
+  middleware.isLoggedIn,
+  student_controller.removePresent
+);
+
+router.post(
   "/:id/absent/:id_2",
   middleware.isLoggedIn,
   student_controller.Absent
 );
 
-// router
-//   .route("/:id/edit/:id_2")
-//   .get(middleware.isLoggedIn, student_controller.Edit)
-//   .post(middleware.isLoggedIn, student_controller.SaveEdit);
+router.post(
+  "/:id/removeAbsent/:id_2",
+  middleware.isLoggedIn,
+  student_controller.removeAbsent
+);
 
 router
   .route("/:id/edit")

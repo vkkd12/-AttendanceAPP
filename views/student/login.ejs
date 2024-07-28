@@ -1,9 +1,11 @@
 <%layout("layouts/boilerplate.ejs");%>
 <body>
   <div class="row">
-    <div class="student_info col-10 offset-1 border border-black border-2 rounded-5 p-4">
-      <h1 class="text-center  text-decoration-underline">Fairy Tail</h1>
-      <hr>
+    <div
+      class="student_info col-10 offset-1 border border-black border-2 rounded-5 p-4"
+    >
+      <h1 class="text-center text-decoration-underline">Fairy Tail</h1>
+      <hr />
       <form method="post" action="/login" novalidate class="needs-validation">
         <div class="mb-3">
           <label for="username" class="form-label">User ID</label>
@@ -30,12 +32,24 @@
           <div class="invalid-feedback">Enter Your Password</div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Login</button>
-        <a href="/register"
-          ><div class="btn btn-danger" type="button">
-            Create an account
-          </div>
-        </a>
+        <div style="display: flex">
+          <button
+            type="submit"
+            class="btn button_style_v3 m-0"
+            style="background-color: rgb(45, 68, 48)"
+          >
+            Login
+          </button>
+          <a style="text-decoration: none" href="/register"
+            ><div
+              class="btn button_style_v3"
+              style="background-color: rgb(95, 45, 45); width: fit-content"
+              type="button"
+            >
+              Create an account
+            </div>
+          </a>
+        </div>
       </form>
     </div>
   </div>

@@ -54,13 +54,11 @@ if (edit_add_subject_button) {
     let div = document.createElement("div");
     div.setAttribute("class", "edit_box");
     div.innerHTML = `
-          <div
-            class="text-center fs-4 text-decoration-underline fst-italic text-primary-emphasis"
-          >
+          <div class="text-center fs-4 text-decoration-underline">
             New Subject${countSubjects}
           </div>
 
-          <div class="row">
+         <div class="row" style="color: black">
             <div class="col-12 col-md-4 mb-3">
               <label for="newSubject${countSubjects}[_name]" class="form-label">
                 Subject Name
@@ -106,5 +104,79 @@ if (edit_add_subject_button) {
     `;
     let parent = edit_add_subject_button.parentElement;
     parent.insertBefore(div, edit_add_subject_button);
+
+    let hr = document.createElement("hr");
+    parent.insertBefore(hr, edit_add_subject_button);
+  });
+}
+
+function getName() {
+  let website = window.location.href;
+  let parts = website.split("/");
+  let WEBSITE_NAME = parts[2];
+  console.log(WEBSITE_NAME);
+  return WEBSITE_NAME;
+}
+
+let input_subject = document.getElementsByClassName("input_check_box1");
+if (input_subject.length > 0) {
+  for (let input of input_subject) {
+    input.addEventListener("change", () => {
+      let studentId = input.id;
+      let subjectId = input.name;
+      let website_name = getName();
+      if (input.checked) {
+        const present = async () => {
+          let response = await axios.post(
+            `http://${website_name}/sent/${studentId}/present/${subjectId}`
+          );
+        };
+
+        present();
+      } else {
+        const removePresent = async () => {
+          let response = await axios.post(
+            `http://${website_name}/sent/${studentId}/removePresent/${subjectId}`
+          );
+        };
+
+        removePresent();
+      }
+    });
+  }
+}
+
+let input_subject2 = document.getElementsByClassName("input_check_box2");
+if (input_subject2.length > 0) {
+  for (let input of input_subject2) {
+    input.addEventListener("change", () => {
+      let studentId = input.id;
+      let subjectId = input.name;
+      let website_name = getName();
+      if (input.checked) {
+        const absent = async () => {
+          let response = await axios.post(
+            `http://${website_name}/sent/${studentId}/absent/${subjectId}`
+          );
+        };
+
+        absent();
+      } else {
+        const removeAbsent = async () => {
+          let response = await axios.post(
+            `http://${website_name}/sent/${studentId}/removeAbsent/${subjectId}`
+          );
+        };
+
+        removeAbsent();
+      }
+    });
+  }
+}
+
+let saveButton = document.getElementById("save_Button");
+if (saveButton) {
+  saveButton.addEventListener("click", () => {
+    location.reload();
   });
 }

@@ -34,6 +34,22 @@ const Present = async (req, res) => {
   res.redirect(`/sent/${id}`);
 };
 
+const removePresent = async (req, res) => {
+  let { id, id_2 } = req.params;
+  let stu = await List.findById(id);
+  let subject = stu.subject;
+
+  for (let sub of subject) {
+    if (sub._id == id_2) {
+      sub.totalDays = sub.totalDays - 1;
+      sub.attend_days = sub.attend_days - 1;
+      await stu.save();
+      break;
+    }
+  }
+  res.redirect(`/sent/${id}`);
+};
+
 const Absent = async (req, res) => {
   let { id, id_2 } = req.params;
   let stu = await List.findById(id);
@@ -49,17 +65,20 @@ const Absent = async (req, res) => {
   res.redirect(`/sent/${id}`);
 };
 
-// const Edit = async (req, res) => {
-//   let { id } = req.params;
-//   res.locals.edit = true;
-//   res.redirect(`/sent/${id}`);
-// };
+const removeAbsent = async (req, res) => {
+  let { id, id_2 } = req.params;
+  let stu = await List.findById(id);
+  let subject = stu.subject;
 
-// const SaveEdit = async (req, res) => {
-//   let { id } = req.params;
-//   res.locals.edit = false;
-//   res.redirect(`/sent/${id}`);
-// };
+  for (let sub of subject) {
+    if (sub._id == id_2) {
+      sub.totalDays = sub.totalDays - 1;
+      await stu.save();
+      break;
+    }
+  }
+  res.redirect(`/sent/${id}`);
+};
 
 const EditPage = async (req, res) => {
   let { id } = req.params;
@@ -121,9 +140,9 @@ const DeleteAll = async (req, res) => {
 const student_controller = {
   StudentPage,
   Present,
+  removePresent,
   Absent,
-  // Edit,
-  // SaveEdit,
+  removeAbsent,
   EditPage,
   SaveEditPage,
   Delete,

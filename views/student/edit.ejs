@@ -1,9 +1,7 @@
 <%layout("layouts/boilerplate.ejs");%>
-<body>
+<body class="text_color">
   <div class="row">
-    <div
-      class="student_info col-10 offset-1 border border-black border-2 rounded-5 p-4"
-    >
+    <div class="student_info col-10 offset-1 border border-black border-2 p-4">
       <h1 class="text-center">Edit Page</h1>
       <hr />
       <form
@@ -14,13 +12,11 @@
       >
         <% for( let subject of student.subject) { %>
         <div class="edit_box">
-          <div
-            class="text-center fs-4 text-decoration-underline fst-italic text-primary-emphasis"
-          >
+          <div class="text-center fs-4 text-decoration-underline">
             <%=subject.name%>
           </div>
 
-          <div class="row">
+          <div class="row" style="color: black">
             <div class="col-12 col-md-4 mb-3">
               <label for="<%=subject._id%>[_name]" class="form-label">
                 Subject Name
@@ -68,13 +64,34 @@
             </div>
           </div>
         </div>
+        <hr />
         <% } %>
 
-        <div id="add_subject_above_edit" class="btn btn-secondary">
+        <div
+          id="add_subject_above_edit"
+          class="btn mb-2 text_color"
+          style="background-color: rgb(154, 123, 70); border: none"
+        >
           +1 Subject
         </div>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button
+          type="submit"
+          class="btn mb-2 text_color"
+          style="background-color: rgb(45, 68, 48); border: none"
+        >
+          Save
+        </button>
       </form>
+      <div style="display: inline">
+        <form method="post" action="/sent/<%=student._id%>/deleteAll">
+          <button
+            class="btn mb-2 text_color"
+            style="background-color: rgb(95, 45, 45); border: none"
+          >
+            Delete All
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 </body>

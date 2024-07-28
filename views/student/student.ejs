@@ -3,22 +3,76 @@
   <div
     class="student_info container p-4 pb-0 border border-black border-2 shadow-lg"
   >
-    <h1 style="cursor: pointer" class="text-start"><%= student.name %></h1>
+    <h1 style="cursor: pointer" class="text-start text_color">
+      <%= student.name %>
+    </h1>
     <hr />
     <ol>
       <% for( let subject of student.subject) { %>
       <li>
         <div
-          style="cursor: pointer"
-          class="mb-1 drop_down_head text-decoration-underline fst-italic text-primary-emphasis"
+          class="drop_down_head"
+          style="margin-bottom: 2%; display: flex; flex-wrap: wrap"
         >
-          <%= subject.name %>
+          <div
+            class="text_color text-decoration-underline subject_name_div"
+            style="cursor: pointer; width: 30%"
+          >
+            <%= subject.name %>
+          </div>
+
+          <div class="button_div_" style="display: flex">
+            <div style="font-size: medium;" class="button_style_v3">
+              <div style="margin: 0">Attended</div>
+              <div class="checkbox-wrapper-44">
+                <label class="toggleButton"
+                  ><input
+                    class="input_check_box1"
+                    type="checkbox"
+                    id="<%= student._id %>"
+                    name="<%= subject._id %>"
+                  />
+
+                  <div>
+                    <svg viewBox="0 0 22 22">
+                      <path
+                        d="M7,12 L10.5,15.5 L19.8714441,5.7968879 C17.6404813,3.2656293 15.0166667,2 12,2 C6.475,2 2,6.475 2,12 C2,17.525 6.475,22 12,22 C17.525,22 22,17.525 22,12 C22,9.65 21.2904813,7.58229595 19.8714441,5.7968879"
+                        transform="translate(-1.000000, -1.000000)"
+                      ></path>
+                    </svg>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div style="font-size: medium;" class="button_style_v3">
+              <div style="margin: 0">Missed</div>
+              <div class="checkbox-wrapper-44">
+                <label class="toggleButton">
+                  <input
+                    class="input_check_box2"
+                    type="checkbox"
+                    id="<%= student._id %>"
+                    name="<%= subject._id %>"
+                  />
+                  <div>
+                    <svg viewBox="0 0 22 22">
+                      <path
+                        d="M7,12 L10.5,15.5 L19.8714441,5.7968879 C17.6404813,3.2656293 15.0166667,2 12,2 C6.475,2 2,6.475 2,12 C2,17.525 6.475,22 12,22 C17.525,22 22,17.525 22,12 C22,9.65 21.2904813,7.58229595 19.8714441,5.7968879"
+                        transform="translate(-1.000000, -1.000000)"
+                      ></path>
+                    </svg>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="ms-0 border border-black border-2 rounded-2">
           <div
             style="width: 0"
-            class="bg-secondary bg-opacity-50 color_bar text-center m-0 rounded-1 container"
+            class="color_bar text-center m-0 rounded-1 container"
           >
             <%=((subject.attend_days * 100.0) /
             subject.totalDays).toString().slice(0, 5)%>%
@@ -27,21 +81,7 @@
 
         <div class="drop_down_item">
           <div class="new_styling text-light">
-            <div class="button_container d-flex justify-content-evenly">
-              <form
-                action="/sent/<%=student._id%>/present/<%=subject._id%>"
-                method="POST"
-              >
-                <button class="button_newStyle">Attended</button>
-              </form>
-              <form
-                action="/sent/<%=student._id%>/absent/<%=subject._id%>"
-                method="POST"
-              >
-                <button class="button_newStyle">Missed</button>
-              </form>
-            </div>
-            <hr />
+            <hr class="drop_down_item_hr" />
             <div class="info_container d-flex justify-content-evenly flex-wrap">
               <div class="info_box">
                 <p class="text-dark text-opacity-85 heading_info">
@@ -53,7 +93,7 @@
                 <p class="text-dark text-opacity-85 heading_info">
                   &nbsp;Lectures Attended&nbsp;
                 </p>
-                <p class="value"><%=subject.attend_days%></p>
+                <p class="value text_color"><%=subject.attend_days%></p>
               </div>
               <div class="info_box">
                 <% if (subject.canBeAbsent) { %>
@@ -61,27 +101,19 @@
                   <p class="text-dark text-opacity-85 heading_info">
                     &nbsp;Leaves Allowed&nbsp;
                   </p>
-                  <p class="value"><%=subject.lectures%></p>
+                  <p class="value text_color"><%=subject.lectures%></p>
                 </div>
                 <% } else{ %>
                 <div class="info_box">
-                  <p class="text-dark text-opacity-85 heading_info">
+                  <p class="text-dark text-opacity-85 heading_info text_color">
                     &nbsp;Required Lectures&nbsp;
                   </p>
-                  <p class="value"><%=subject.lectures%></p>
+                  <p class="value text_color"><%=subject.lectures%></p>
                 </div>
                 <% } %>
               </div>
             </div>
-            <hr class="mt-0" />
-            <div class="button_container d-flex justify-content-evenly">
-              <form
-                action="/sent/<%=student._id%>/delete/<%=subject._id%>"
-                method="POST"
-              >
-                <button class="button_newStyle _down">Delete</button>
-              </form>
-            </div>
+            <hr class="drop_down_item_hr" />
           </div>
         </div>
       </li>
@@ -89,14 +121,31 @@
     </ol>
     <div class="d-flex justify-content-between mb-3 ps-5 pe-2">
       <form method="get" action="/logout">
-        <button class="btn btn-warning">Logout</button>
+        <button
+          class="btn button_style_v3 m-0"
+          style="background-color: rgb(154, 123, 70)"
+        >
+          Logout
+        </button>
       </form>
+      <div>
+        <button
+          id="save_Button"
+          class="btn button_style_v3 m-0"
+          style="background-color: rgb(45, 68, 48)"
+        >
+          Save
+        </button>
+      </div>
       <form method="get" action="/sent/<%=student._id%>/edit">
-        <button class="btn btn-primary">Edit</button>
-      </form>
-      <form method="post" action="/sent/<%=student._id%>/deleteAll">
-        <button class="btn btn-danger">Delete All</button>
+        <button
+          class="btn button_style_v3 m-0"
+          style="background-color: rgb(95, 45, 45)"
+        >
+          Edit
+        </button>
       </form>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>

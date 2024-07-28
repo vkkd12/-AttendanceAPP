@@ -1,19 +1,55 @@
 body {
-    font-family: 'Source Code Pro', monospace;
-    background-color: rgb(109, 109, 109);
+    font-family: cursive;
+    background-color: rgb(43, 36, 36);
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+a:hover {
+    color: rgb(229, 225, 224) !important;
+}
+
+.btn:hover {
+    color: rgb(229, 225, 224) !important;
+}
+
+.flash_message {
+    border: 0;
+    background-color: rgb(110, 76, 76);
+    height: 3rem;
+    align-self: center;
+    margin: 0;
+    padding: 10px 0;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h3 {
+        margin: 0;
+
+        button {
+            padding: 0 !important;
+            align-self: center !important;
+            position: relative !important;
+            top: -10px !important;
+            right: 2px !important;
+        }
+    }
 }
 
 .main {
     padding: 1rem 1rem 2rem;
+    width: 80vw;
 }
 
-.header {
-    height: 30vh;
-    background-image: url("/x.png");
-    background-size: 30%;
-    background-position: center;
-    background-repeat: no-repeat;
+.text_color {
+    color: rgb(229, 225, 224);
 }
+
 
 .text-success {
     color: rgb(6, 43, 255) !important;
@@ -23,20 +59,14 @@ p {
     margin: 0;
 }
 
-@media only screen and (min-width: 768px) {
-    .header {
-        height: 35vh;
-        background-size: 18%;
-        margin-bottom: 20px;
-    }
-}
-
 .color_bar {
+    background-color: rgb(46, 29, 29);
+    color: rgb(191, 186, 182);
     transition: 1s linear;
 }
 
 .student_info {
-    background-color: rgb(182, 184, 183);
+    background-color: rgb(110, 76, 76);
 }
 
 ol {
@@ -56,23 +86,18 @@ form {
     display: none;
     box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.2);
     border: 1px solid black;
+    background-color: rgb(139, 78, 102);
     margin-top: 1rem;
+    padding: 6px 0;
 }
 
 .drop_down_show {
     display: block;
 }
 
-.flash_message {
-    border: 0;
-    color: whitesmoke;
-    background-color: rgb(62, 62, 62);
-}
-
 /****************NEW USER INTERFACE*****************/
 
 .new_styling {
-    background-color: rgb(182, 184, 183);
     padding: 0 10px;
 }
 
@@ -87,18 +112,19 @@ form {
     line-height: 20px;
     font-size: 1.3rem;
 }
-._down{
-    border-radius: 10px 10px 0px 0px ;
+
+._down {
+    border-radius: 10px 10px 0px 0px;
 }
 
 hr {
     background-color: black;
 }
 
-.info_box {
+/* .info_box {
     padding: 10px;
     padding-top: 0;
-}
+} */
 
 p {
     margin: 0;
@@ -117,9 +143,9 @@ p {
 
 /**************** EDIT *****************/
 
-.edit_box{
+.edit_box {
     box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.2);
-    background-color: rgb(129, 129, 129);
+    background-color: rgb(139, 78, 102);
     padding: 10px;
     margin-bottom: 1rem;
 }

@@ -1,9 +1,11 @@
 <%layout("layouts/boilerplate.ejs");%>
 <body>
-  <div class="row">
-    <div class="student_info col-10 offset-1 border border-black border-2 rounded-5 p-4">
+  <div class="row text_color">
+    <div
+      class="student_info col-10 offset-1 border border-black border-2 rounded-5 p-4"
+    >
       <h1 class="text-center text-decoration-underline">Fairy Tail</h1>
-      <hr>
+      <hr />
       <form
         method="post"
         action="/register"
@@ -49,9 +51,25 @@
           <div class="invalid-feedback">Enter Your Password</div>
         </div>
 
-        <button type="submit" class="btn btn-danger">Register</button>
-        <a href="/login">
-          <div class="btn btn-primary" type="button">Login Page</div>
+        <button
+          type="submit"
+          class="btn button_style_v3 m-0"
+          style="
+            background-color: rgb(95, 45, 45);
+            width: fit-content;
+            display: inline;
+          "
+        >
+          Register
+        </button>
+        <a style="text-decoration: none" href="/login">
+          <div
+            class="btn button_style_v3"
+            style="background-color: rgb(45, 68, 48); display: inline"
+            type="button"
+          >
+            Login Page
+          </div>
         </a>
       </form>
     </div>
