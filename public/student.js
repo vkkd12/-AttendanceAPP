@@ -13,7 +13,7 @@ if (length !== 0) {
   for (let i = 0; i < length; i++) {
     let ele = drop_down_head[i];
     ele.addEventListener("click", () => {
-      let drop_down_item = ele.nextElementSibling.nextElementSibling;
+      let drop_down_item = ele.nextElementSibling.nextElementSibling.nextElementSibling;
 
       if (drop_down_item.classList.contains("drop_down_show")) {
         drop_down_item.classList.remove("drop_down_show");

@@ -42,12 +42,11 @@ a:hover {
 }
 
 .main {
-    padding: 1rem 1rem 2rem;
-    width: 80vw;
+    width: 100vw;
 }
 
 .text_color {
-    color: rgb(229, 225, 224);
+    color: rgb(229, 225, 224) !important;
 }
 
 
@@ -67,6 +66,8 @@ p {
 
 .student_info {
     background-color: rgb(110, 76, 76);
+    margin: auto;
+    width: 95vw;
 }
 
 ol {
