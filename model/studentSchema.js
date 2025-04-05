@@ -13,6 +13,10 @@ const StudentSchema = new Schema({
       attend_days: Number,
       canBeAbsent: Boolean,
       lectures: Number,
+      LastChange: {
+        type: Date,
+        default: new Date(),
+      }
     },
   ],
 });

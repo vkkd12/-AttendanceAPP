@@ -25,6 +25,7 @@ const Present = async (req, res) => {
 
   for (let sub of subject) {
     if (sub._id == id_2) {
+      sub.LastChange = new Date();
       sub.totalDays = sub.totalDays + 1;
       sub.attend_days = sub.attend_days + 1;
       await stu.save();
@@ -57,6 +58,7 @@ const Absent = async (req, res) => {
 
   for (let sub of subject) {
     if (sub._id == id_2) {
+      sub.LastChange = new Date();
       sub.totalDays = sub.totalDays + 1;
       await stu.save();
       break;
